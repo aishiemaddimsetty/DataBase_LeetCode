@@ -1,0 +1,12 @@
+SELECT player_id, MIN(event_date) as first_login
+FROM Activity
+GROUP BY player_id;
+*********************ABOVE IS ACCEPTED**********************************
+
+
+SELECT A.player_id, A.event_date AS first_login
+FROM Activity A Join Activity B
+ON A.player_id = B.player_id
+WHERE A.event_date < B.event_date 
+
+** Above is giving output for multiple entiries but for ones that don't repeat it is not displaying.
