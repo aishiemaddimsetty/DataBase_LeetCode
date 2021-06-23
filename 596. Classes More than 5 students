@@ -1,0 +1,20 @@
+Approach 1: Faster run time
+# Write your MySQL query statement below
+SELECT class
+FROM courses 
+Group BY class
+HAVING COUNT(DISTINCT student) >= 5
+
+
+Approach 2:
+# Write your MySQL query statement below
+SELECT
+    class
+FROM
+    (SELECT
+        class, COUNT(DISTINCT student) AS num
+    FROM
+        courses
+    GROUP BY class) AS temp_table
+WHERE
+    num >= 5
